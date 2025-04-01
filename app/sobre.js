@@ -36,10 +36,12 @@ export default function Sobre() {
               <View style={styles.cabecalho}>
                 <View style={styles.boxIconesCabecalho}>
                   <View>
-                    <Image
-                      style={styles.icone}
-                      source={require("./img/botao-x.png")}
-                    />
+                    <TouchableOpacity onPress={ () =>  router.navigate("/") }>
+                      <Image
+                        style={styles.icone}
+                        source={require("./img/botao-x.png")}
+                      />
+                    </TouchableOpacity>
                   </View>
                   <View>
                     <Text style={styles.textTitle}>Area Pix </Text>

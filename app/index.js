@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView,  } from 'react-native';
 import { useRouter } from 'expo-router';
 import {
@@ -13,7 +14,9 @@ import { navigate } from 'expo-router/build/global-state/routing';
 
 export default function App() {
     const router = useRouter();
-  
+    const [saleVisible, setSale] = useState(false)
+
+
     return (
       <>
           <SafeAreaProvider>
@@ -34,9 +37,13 @@ export default function App() {
                     </View>
 
                     <View style={styles.itensIcones} >
-                      <View>
-                      <Image style={styles.icone} source={require('./img/olho.png')} />
-                      </View>
+                      <TouchableOpacity onPress={ () => { setSale(!saleVisible) }}>
+                        { saleVisible ? 
+                          <Image style={styles.icone} source={require('./img/eye.png')} /> 
+                          :
+                          <Image style={styles.icone} source={require('./img/olho.png')} />
+                        }
+                      </TouchableOpacity>
                       <View>
                       <Image style={styles.icone} source={require('./img/ajuda.png')} />
                       </View>
@@ -58,9 +65,17 @@ export default function App() {
               <View style={stylesSection.container}>
                   <View style={stylesSection.content}>
                     <Text style={stylesSection.title}>Conta</Text>
-                    <Text style={stylesSection.titleSaldo}>€3.240.221</Text>
-
-                    <ScrollView 
+                    
+                    { saleVisible ? 
+                      <Text style={stylesSection.titleSaldo}>€3.240.221</Text>
+                      :
+                      <View  style={{ backgroundColor: '#ccc', width:150, borderRadius: 8, opacity:0.2}}>
+                        <Text style={stylesSection.titleSaldo}></Text>
+                      </View>
+                    }
+                    
+                   
+                    <ScrollView  
                       horizontal 
                       showsHorizontalScrollIndicator={false} 
                       contentContainerStyle={stylesSection.containerScrol}
@@ -73,30 +88,30 @@ export default function App() {
                       </View>
 
                       <View style={stylesSection.contentOptions} >
-                        <View style={stylesSection.circuloOptions}>
+                        <TouchableOpacity style={stylesSection.circuloOptions}>
                           <Image  source={require('./img/Index/options/cod_barras.png')} />
-                        </View>
+                        </TouchableOpacity>
                         <Text style={stylesSection.titleOptions}>Pagar</Text>
                       </View>
 
                       <View style={stylesSection.contentOptions} >
-                        <View style={stylesSection.circuloOptions}>
+                        <TouchableOpacity style={stylesSection.circuloOptions}>
                           <Image  source={require('./img/Index/options/transferir.png')} />
-                        </View>
+                        </TouchableOpacity>
                         <Text style={stylesSection.titleOptions}>Transferir</Text>
                       </View>
                       
                       <View style={stylesSection.contentOptions} >
-                        <View style={stylesSection.circuloOptions}>
+                        <TouchableOpacity style={stylesSection.circuloOptions}>
                           <Image  source={require('./img/Index/options/depositar.png')} />
-                        </View>
+                        </TouchableOpacity>
                         <Text style={stylesSection.titleOptions}>Depositar</Text>
                       </View> 
                       
                       <View style={stylesSection.contentOptions} >
-                        <View style={stylesSection.circuloOptions}>
+                        <TouchableOpacity style={stylesSection.circuloOptions}>
                           <Image  source={require('./img/Index/options/recarga.png')} />
-                        </View>
+                        </TouchableOpacity>
                         <Text style={stylesSection.titleOptions}>Recarga</Text>
                       </View>
                     </ScrollView>
@@ -241,7 +256,6 @@ const styles = StyleSheet.create({
   }
 })
 
-
 const stylesSection = StyleSheet.create({
   container:{
     flex:1,
@@ -271,6 +285,11 @@ const stylesSection = StyleSheet.create({
   titleSaldo:{
     fontSize:26,
     fontWeight: 700
+  },
+
+  ocult:{
+    backgroundColor:'#ccc',
+    width:150,
   },
 
   containerScrol: {
@@ -339,7 +358,6 @@ const stylesCartao = StyleSheet.create({
   }
 
 })
-
 
 const stylesPortabilidade = StyleSheet.create({
   container:{
