@@ -15,6 +15,13 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context"
 
+const LinhaDivisoria = () => {
+  return <View style={styles.linha} />
+}
+
+
+
+
 export default function Sobre() {
   const router = useRouter()
 
@@ -36,7 +43,7 @@ export default function Sobre() {
               <View style={styles.cabecalho}>
                 <View style={styles.boxIconesCabecalho}>
                   <View>
-                    <TouchableOpacity onPress={ () =>  router.navigate("/") }>
+                    <TouchableOpacity onPress={() => router.back()}>
                       <Image
                         style={styles.icone}
                         source={require("./img/botao-x.png")}
@@ -55,7 +62,7 @@ export default function Sobre() {
                 </View>
               </View>
             </View>
-
+            <LinhaDivisoria />
             {/* Section */}
             <View style={stylesSection.container}>
               <View style={stylesSection.content}>
@@ -69,7 +76,7 @@ export default function Sobre() {
                 >
                   <View style={stylesSection.contentOptions}>
                     <TouchableOpacity
-                      onPress={() => router.navigate("/")}
+                      onPress={() => router.navigate("/tela_valor_pix")}
                       style={stylesSection.circuloOptions}
                     >
                       <Image source={require("./img/Index/options/pix.png")} />
@@ -138,10 +145,21 @@ export default function Sobre() {
                     </View>
                     <Text style={stylesSection.titleOptions}>Depositar</Text>
                   </View>
-
-
-
                 </ScrollView>
+                <LinhaDivisoria />
+                <View>
+                  <Text style={{ marginTop: 40 }}>Preferências</Text>
+                  <View style={stylesSection.cartoes}>
+                    <Image source={require("./img/Index/cartoes.png")} />
+                    <Text style={{ fontWeight: 700 }}>
+                      Registrar ou trazer chaves
+                    </Text>
+                  </View>
+                  <View style={stylesSection.cartoes}>
+                    <Image source={require("./img/Index/cartoes.png")} />
+                    <Text style={{ fontWeight: 700 }}>Meus limites</Text>
+                  </View>
+                </View>
               </View>
             </View>
           </ScrollView>
@@ -175,7 +193,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     marginTop: 53,
-    
   },
 
   itensIcones: {
@@ -193,7 +210,14 @@ const styles = StyleSheet.create({
     color: "Black",
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 15
+    marginTop: 15,
+  },
+  linha: {
+    borderBottomWidth: 1, 
+    borderBottomColor: "gray", 
+    width: "100%", 
+    alignSelf: "center",
+    paddingVertical: 10,
   },
 })
 
@@ -203,7 +227,7 @@ const stylesSection = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 20,
+    // marginBottom: 20,
   },
 
   content: {
@@ -248,11 +272,10 @@ const stylesSection = StyleSheet.create({
   },
 
   cartoes: {
-    backgroundColor: "#f0f1f5",
-
+    backgroundColor: "#ffffff",
     flexDirection: "row",
     gap: 10,
-    marginTop: 20,
+    
     width: "100%",
     height: 56,
     borderRadius: 12,
