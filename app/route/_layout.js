@@ -8,7 +8,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="sobre" options={{ headerShown: false }} />
         <Stack.Screen name="tela_valor_pix" options={{ headerShown: false }} />
-        <Stack.Screen name="tela _aprovado" options={{ headerShown: false }} />
+        <Stack.Screen name="tela_aprovado" options={{ headerShown: false }} />
       </Stack>
     )
 }

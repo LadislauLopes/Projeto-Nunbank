@@ -19,42 +19,18 @@ import {
 import React, { useState } from "react"
 
 
-function CurrencyInput() {
-  const [value, setValue] = useState("0,00")
-
-  const formatCurrency = (text) => {
-    let numericValue = text.replace(/\D/g, "") 
-    if (numericValue === "") numericValue = "0"
-
-    let floatValue = (parseInt(numericValue, 10) / 100).toFixed(2) 
-    let formattedValue = floatValue.replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".") 
-
-    return formattedValue
-  }
-
-  const handleChange = (text) => {
-    setValue(formatCurrency(text))
-  }
-
-  return (
-    <View style={stylesValue.container}>
-      <TextInput
-        style={stylesValue.input}
-        keyboardType="numeric"
-        onChangeText={handleChange}
-        value={`R$ ${value}`}
-        maxLength={15} 
-      />
-    </View>
-  )
-}
-
 const LinhaDivisoria = () => {
   return <View style={styles.linha} />
 }
 
 export default function Sobre() {
   const router = useRouter()
+  const [inputValue, setInput] = useState()
+  const [balance, setBalance] = useState("1.000,00")
+  const [limitCard, setLimit] = useState("1.000,00")
+
+
+
 
   return (
     <>
@@ -65,54 +41,71 @@ export default function Sobre() {
             {/* header */}
             <View
               style={{
-                backgroundColor: "#8A19D6",
-                alignItems: "center",
-                justifyContent: "center",
-                height: 178,
+              backgroundColor: "#8A19D6",
+              alignItems: "center",
+              justifyContent: "center",
+              height: 178,
               }}
             >
-              <View style={styles.cabecalho}>
-                <View style={styles.boxIconesCabecalho}>
-                  <View>
-                    <TouchableOpacity onPress={() => router.back()}>
+                <View style={styles.cabecalho}>
+                  <View style={styles.boxIconesCabecalho}>
+                    <View>
+                      <TouchableOpacity onPress={() => router.back()}>
                       <Image
                         style={styles.icone}
                         source={require("./img/botao-x.png")}
                       />
+                      </TouchableOpacity> 
+                    </View>
+
+                    <View>
+                      <Text key="1" style={styles.textTitle}>
+                      Qual é o valor da Transferência?
+                      </Text>
+                    </View>
+
+                    <View>
+                      <Text key="2" style={{ marginVertical: 5 }}>
+                      Saldo da conta: {balance}
+                      </Text>
+                    </View>
+
+                    <View>
+                      <Text key="3" style={{  marginVertical: 5 }}>
+                      Limite do cartão: {limitCard}
+                      </Text>
+                    </View>
+                  </View>
+
+                  <View style={stylesValue.container}>
+                    <TextInput
+                      style={stylesValue.input}
+                      keyboardType="numeric"
+                      onChangeText={setInput}
+                      value={inputValue}
+                      maxLength={15} 
+                      placeholder="0,00"
+                    />
+                  </View> 
+
+                  <LinhaDivisoria />
+
+                  <View>
+                    <TouchableOpacity style={stylesSection.circuloOptions} onPress={() => router.back()}>
+                      <Image
+                        style={styles.icone}
+                        source={require("./img/pix/next.png")}
+                      />
                     </TouchableOpacity>
                   </View>
-                  <View>
-                    <Text style={styles.textTitle}>
-                      Qual é o valor da Transferência?{" "}
-                    </Text>
-                  </View>
-                  <View>
-                    <Text style={{ marginVertical: 5 }}>
-                      Saldo da conta:{"  "}
-                      <Text style={{ fontWeight: "700" }}>€3.240.221,00</Text>
-                    </Text>
-                  </View>
-                  <View>
-                    <Text style={{  marginVertical: 5 }}>
-                      Limite do cartão:{"  "}
-                      <Text style={{ fontWeight: "700" }}>€8.000.000,00</Text>
-                    </Text>
-                  </View>
-                </View>
 
-                    <View style={styles.container}>
-            <CurrencyInput /> {/* Chamando o componente */}
-          </View>
-                
-            <LinhaDivisoria />
-            </View>
+                </View>
             </View>
           </ScrollView>
         </SafeAreaView>
       </SafeAreaProvider>
     </>
-  )
-}
+)}
 
 const styles = StyleSheet.create({
   container: {
@@ -208,10 +201,11 @@ const stylesSection = StyleSheet.create({
   },
 
   circuloOptions: {
-    width: 63,
-    height: 63,
+    backgroundColor: "#8A19D6",
+    width: 53,
+    height: 53,
+    marginTop:20,
     marginLeft: 0,
-    backgroundColor: "#f0f1f5",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 100,
@@ -247,7 +241,7 @@ const stylesSection = StyleSheet.create({
 const stylesValue = StyleSheet.create({
   container: { padding: 0, width: "100%", marginTop:5},
   input: {
-    padding: 10,
+    paddingTop: 10,
     fontSize: 22,
     textAlign: "Left",
     fontWeight: 700,
