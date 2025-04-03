@@ -85,7 +85,7 @@ export default function Sobre() {
         <View style={stylesSection.container}>
           <TouchableOpacity
             style={stylesSection.circuloOptions}
-            onPress={() => router.back()}
+            onPress={() => router.navigate("tela_digita_pix")}
           >
             <Image
               style={styles.icone}
