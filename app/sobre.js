@@ -11,8 +11,6 @@ import { useRouter } from "expo-router"
 import {
   SafeAreaView,
   SafeAreaProvider,
-  SafeAreaInsetsContext,
-  useSafeAreaInsets,
 } from "react-native-safe-area-context"
 
 const LinhaDivisoria = () => {

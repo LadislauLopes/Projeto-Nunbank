@@ -5,10 +5,8 @@ import { useRouter } from 'expo-router';
 import {
   SafeAreaView,
   SafeAreaProvider,
-  SafeAreaInsetsContext,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import { navigate } from 'expo-router/build/global-state/routing';
+
 
 
 
