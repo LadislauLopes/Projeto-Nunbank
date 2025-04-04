@@ -67,7 +67,7 @@ export default function App() {
                     <Text style={stylesSection.title}>Conta</Text>
                     
                     { saleVisible ? 
-                      <Text style={stylesSection.titleSaldo}>€3.240.221</Text>
+                      <Text style={stylesSection.titleSaldo}>R$40.221,00</Text>
                       :
                       <View  style={{ backgroundColor: '#ccc', width:150, borderRadius: 8, opacity:0.2}}>
                         <Text style={stylesSection.titleSaldo}></Text>

@@ -79,10 +79,10 @@ export default function Tela_procura_pix() {
                       >
                         <View style={stylesSection.contentOptions}>
                           <TouchableOpacity
-                            onPress={() => router.navigate("/sobre")}
+                            onPress={() => router.navigate("/confirmar_pix")}
                             style={stylesSection.circuloOptions}
                           >
-                            <Text style={{ fontSize: 30, fontWeight: 900 }}>
+                            <Text style={{ fontSize: 30, fontWeight: 600 }}>
                               AR
                             </Text>
                           </TouchableOpacity>
@@ -94,10 +94,10 @@ export default function Tela_procura_pix() {
 
                         <View style={stylesSection.contentOptions}>
                           <TouchableOpacity
-                            onPress={() => router.navigate("/sobre")}
+                            onPress={() => router.navigate("/")}
                             style={stylesSection.circuloOptions}
                           >
-                            <Text style={{ fontSize: 30, fontWeight: 900 }}>
+                            <Text style={{ fontSize: 30, fontWeight: 600 }}>
                               LL
                             </Text>
                           </TouchableOpacity>
@@ -109,10 +109,10 @@ export default function Tela_procura_pix() {
 
                         <View style={stylesSection.contentOptions}>
                           <TouchableOpacity
-                            onPress={() => router.navigate("/sobre")}
+                            onPress={() => router.navigate("/")}
                             style={stylesSection.circuloOptions}
                           >
-                            <Text style={{ fontSize: 30, fontWeight: 900 }}>
+                            <Text style={{ fontSize: 30, fontWeight: 600 }}>
                               FC
                             </Text>
                           </TouchableOpacity>
@@ -135,7 +135,7 @@ export default function Tela_procura_pix() {
                         <View style={styleslist.contentOptions}>
                           <View style={styleslist.contentOptions}>
                             <TouchableOpacity
-                              onPress={() => router.navigate("/sobre")}
+                              onPress={() => router.navigate("/confirmar_pix")}
                               style={styleslist.circuloOptions}
                             >
                               <Text style={{ fontSize: 16, fontWeight: 900 }}>
@@ -151,7 +151,7 @@ export default function Tela_procura_pix() {
                         <View style={styleslist.contentOptions}>
                           <View style={styleslist.contentOptions}>
                             <TouchableOpacity
-                              onPress={() => router.navigate("/sobre")}
+                              onPress={() => router.navigate("/")}
                               style={styleslist.circuloOptions}
                             >
                               <Text style={{ fontSize: 16, fontWeight: 900 }}>
@@ -166,7 +166,7 @@ export default function Tela_procura_pix() {
                         <View style={styleslist.contentOptions}>
                           <View style={styleslist.contentOptions}>
                             <TouchableOpacity
-                              onPress={() => router.navigate("/sobre")}
+                              onPress={() => router.navigate("/")}
                               style={styleslist.circuloOptions}
                             >
                               <Text style={{ fontSize: 16, fontWeight: 900 }}>
@@ -182,7 +182,7 @@ export default function Tela_procura_pix() {
                         <View style={styleslist.contentOptions}>
                           <View style={styleslist.contentOptions}>
                             <TouchableOpacity
-                              onPress={() => router.navigate("/sobre")}
+                              onPress={() => router.navigate("/")}
                               style={styleslist.circuloOptions}
                             >
                               <Text style={{ fontSize: 16, fontWeight: 900 }}>

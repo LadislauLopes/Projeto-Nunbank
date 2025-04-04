@@ -20,17 +20,17 @@ const LinhaDivisoria = () => {
 export default function Sobre() {
   const router = useRouter()
   const [inputValue, setInput] = useState("")
-  const [balance, setBalance] = useState("1.000,00")
-  const [limitCard, setLimit] = useState("1.000,00")
+  const [balance, setBalance] = useState("R$40.221,00")
+  const [limitCard, setLimit] = useState("R$80.500,00")
 
   const formatCurrency = (value) => {
     const numericValue = value.replace(/\D/g, "")
     const number = parseInt(numericValue || "0", 10)
     const formatted = (number / 100).toLocaleString("pt-BR", {
       style: "currency",
-      currency: "EUR",
+      currency: "BRL",
     })
-    return formatted.replace("€", "").trim()
+    return formatted.replace("R$", "").trim()
   }
 
   const handleInputChange = (value) => {
@@ -58,15 +58,16 @@ export default function Sobre() {
                 Qual é o valor da Transferência?
               </Text>
               <Text style={{ marginVertical: 5 }}>
-                Saldo da conta: {balance}
+                Saldo da conta:{" "}
+                <Text style={{ fontWeight: 800 }}> {balance}</Text>
               </Text>
               <Text style={{ marginVertical: 5 }}>
-                Limite do cartão: {limitCard}
+                Limite do cartão: <Text style={{ fontWeight: 800 }}>{limitCard}</Text>
               </Text>
             </View>
 
             <View style={stylesValue.container}>
-              <Text style={stylesValue.currency}>€</Text>
+              <Text style={stylesValue.currency}>R$</Text>
               <TextInput
                 style={stylesValue.input}
                 keyboardType="numeric"
